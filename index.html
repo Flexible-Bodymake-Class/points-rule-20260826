@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>FBCサロン ポイント付与ルール｜2026.8.26改訂</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  :root {
+    --coral: #3E95C9;
+    --coral-light: #EEF7FB;
+    --coral-deep: #3D718A;
+    --charcoal: #232B30;
+    --gray-text: #60758A;
+    --bg: #F7FAFC;
+    --card: #FFFFFF;
+    --line: #D9E7EF;
+    --beige: #EEF7FB;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+    background: var(--bg);
+    color: var(--charcoal);
+    line-height: 1.7;
+  }
+  .serif { font-family: "Hiragino Mincho ProN", "Yu Mincho", serif; }
+
+  /* ===== Header ===== */
+  header {
+    position: relative;
+    border-bottom: 1px solid var(--line);
+    padding: 56px 20px 40px;
+    text-align: center;
+    overflow: hidden;
+    background-image:
+      linear-gradient(rgba(247,250,252,.86), rgba(238,247,251,.86)),
+      url("hero.jpg");
+    background-size: cover;
+    background-position: 72% 38%;
+  }
+  header .eyebrow {
+    position: relative;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--coral-deep);
+    margin-bottom: 10px;
+  }
+  header h1 {
+    position: relative;
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  header .sub {
+    position: relative;
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--gray-text);
+  }
+  header .stats {
+    position: relative;
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+  }
+  header .stat .num {
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+    font-size: 26px;
+    color: var(--coral-deep);
+  }
+  header .stat .label {
+    font-size: 11px;
+    color: var(--gray-text);
+    letter-spacing: 1px;
+  }
+
+  .container { max-width: 860px; margin: 0 auto; padding: 24px 16px 60px; }
+
+  /* ===== Notice banner ===== */
+  .notice {
+    background: var(--coral-light);
+    border: 1px solid var(--coral);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    font-size: 13.5px;
+  }
+  .notice strong { color: var(--coral-deep); }
+
+  /* ===== Controls ===== */
+  .search-wrap { margin-bottom: 18px; }
+  .search-wrap input {
+    width: 100%;
+    padding: 13px 18px;
+    font-size: 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--card);
+    outline: none;
+    color: var(--charcoal);
+  }
+  .search-wrap input:focus { border-color: var(--coral); }
+  .search-wrap input::placeholder { color: #60758A; }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .tag {
+    padding: 6px 16px;
+    font-size: 12px;
+    border: 1px solid var(--coral);
+    border-radius: 999px;
+    background: var(--card);
+    color: var(--coral-deep);
+    cursor: pointer;
+    transition: all .15s;
+    user-select: none;
+  }
+  .tag:hover { background: var(--coral-light); }
+  .tag.active {
+    background: var(--coral);
+    color: #fff;
+  }
+
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .toolbar .count { font-size: 12px; color: var(--gray-text); }
+  .toolbar button {
+    font-size: 12px;
+    padding: 6px 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--card);
+    color: var(--gray-text);
+    cursor: pointer;
+    margin-left: 8px;
+  }
+  .toolbar button:hover { border-color: var(--coral); color: var(--coral-deep); }
+
+  /* ===== Sections & Cards ===== */
+  .section { margin-bottom: 32px; }
+  .section-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-left: 4px;
+  }
+  .section-title h2 {
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .section-title .en {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--coral);
+  }
+  .section-title::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 18px;
+    background: var(--coral);
+    border-radius: 2px;
+    align-self: center;
+  }
+
+  .qa-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,.03);
+  }
+  .qa-q {
+    display: flex;
+    gap: 12px;
+    padding: 15px 18px;
+    cursor: pointer;
+    align-items: flex-start;
+  }
+  .qa-q:hover { background: var(--coral-light); }
+  .qa-q .q-mark {
+    flex-shrink: 0;
+    font-family: "Hiragino Mincho ProN", serif;
+    font-size: 15px;
+    color: var(--coral-deep);
+    font-weight: 600;
+    line-height: 1.6;
+  }
+  .qa-q .q-text { font-size: 14px; font-weight: 600; flex: 1; }
+  .qa-q .arrow {
+    flex-shrink: 0;
+    width: 8px; height: 8px;
+    border-right: 1.5px solid var(--coral);
+    border-bottom: 1.5px solid var(--coral);
+    transform: rotate(45deg);
+    margin-top: 7px;
+    transition: transform .2s;
+  }
+  .qa-card.open .arrow { transform: rotate(-135deg); margin-top: 10px; }
+  .qa-a {
+    display: none;
+    padding: 0 18px 16px 18px;
+  }
+  .qa-card.open .qa-a { display: block; }
+  .qa-a .a-inner {
+    display: flex;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--beige);
+    border-radius: 8px;
+  }
+  .qa-a .a-mark {
+    flex-shrink: 0;
+    font-family: "Hiragino Mincho ProN", serif;
+    font-size: 15px;
+    color: var(--gray-text);
+    font-weight: 600;
+  }
+  .qa-a .a-text { font-size: 13.5px; color: #4D5B63; }
+
+  .hidden { display: none !important; }
+
+  .no-result {
+    text-align: center;
+    padding: 50px 0;
+    color: var(--gray-text);
+    font-size: 14px;
+  }
+
+  /* ===== Footer flow ===== */
+  .flow {
+    margin-top: 44px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 26px 22px;
+  }
+  .flow h3 {
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 18px;
+  }
+  .flow ol { list-style: none; counter-reset: step; }
+  .flow li {
+    counter-increment: step;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--line);
+    font-size: 13.5px;
+  }
+  .flow li:last-child { border-bottom: none; }
+  .flow li::before {
+    content: counter(step);
+    flex-shrink: 0;
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    background: var(--coral);
+    color: #fff;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Hiragino Mincho ProN", serif;
+  }
+  footer {
+    text-align: center;
+    padding: 30px 0 40px;
+    font-size: 11px;
+    color: #60758A;
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 600px) {
+    header h1 { font-size: 19px; }
+    header .stats { gap: 20px; }
+    .qa-q .q-text { font-size: 13.5px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">FLEXIBLE BODYMAKE CLASS</div>
+  <h1>ポイント付与ルール まとめ</h1>
+  <div class="sub">2026.8.26改訂</div>
+  <div class="stats">
+    <div class="stat"><div class="num" id="statQ">0</div><div class="label">QUESTIONS</div></div>
+    <div class="stat"><div class="num" id="statC">0</div><div class="label">CATEGORIES</div></div>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="notice">
+    <strong>2026年9月1日より、ポイント付与には、事前登録したZoom表示名でのご参加が必須になります。</strong><br>
+    登録がまだの方は、<a href="https://docs.google.com/forms/d/e/1FAIpQLSd-zulF8LaNnDtht8hULveZyru1IFNOoM1e2zsjb6D-Q-iLjA/viewform" target="_blank" rel="noopener">「Zoom表示名ご登録フォーム」</a>から早めのご登録をお願いします。
+  </div>
+
+  <div class="flow">
+    <h3>Zoom表示名登録の流れ</h3>
+    <ol>
+      <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSd-zulF8LaNnDtht8hULveZyru1IFNOoM1e2zsjb6D-Q-iLjA/viewform" target="_blank" rel="noopener">「Zoom表示名ご登録フォーム」</a>を開く</li>
+      <li>Discord表示名とあわせて、レッスン参加時に使うZoom表示名を入力して送信する</li>
+      <li>次回のライブから、登録したZoom表示名(Discord表示名と同一を推奨)で参加するだけでOK（Zoomチャットへの入力は不要）</li>
+    </ol>
+  </div>
+
+  <div class="search-wrap">
+    <input type="text" id="search" placeholder="キーワードで検索（例：登録、ボーナス、20分）">
+  </div>
+
+  <div class="tags" id="tags"></div>
+
+  <div class="toolbar">
+    <div class="count" id="count"></div>
+    <div>
+      <button onclick="toggleAll(true)">すべて開く</button>
+      <button onclick="toggleAll(false)">すべて閉じる</button>
+    </div>
+  </div>
+
+  <div id="sections"></div>
+  <div class="no-result hidden" id="noResult">該当する質問が見つかりませんでした</div>
+
+  <div class="flow">
+    <h3>Zoom表示名登録の流れ</h3>
+    <ol>
+      <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSd-zulF8LaNnDtht8hULveZyru1IFNOoM1e2zsjb6D-Q-iLjA/viewform" target="_blank" rel="noopener">「Zoom表示名ご登録フォーム」</a>を開く</li>
+      <li>Discord表示名とあわせて、レッスン参加時に使うZoom表示名を入力して送信する</li>
+      <li>次回のライブから、登録したZoom表示名(Discord表示名と同一を推奨)で参加するだけでOK（Zoomチャットへの入力は不要）</li>
+    </ol>
+  </div>
+
+</div>
+
+<footer>FBC SALON — POINTS RULE</footer>
+
+<script>
+const DATA = [
+  { cat: "基本ルール", en: "BASIC RULES", items: [
+    { q: "ポイント付与の条件を教えてください。", open: true,
+      a: "2026年9月1日より、以下の条件を満たした場合にポイントが付与されます。<br><br>・<strong>表示名：</strong> 事前登録済みのZoom表示名で参加<br>・<strong>滞在時間：</strong> 20分以上参加（全クラス共通）<br><br>※Zoomチャットへのメッセージ入力は不要です。" },
+    { q: "ライブ参加時にチャットへDiscord表示名を送る必要はありますか？",
+      a: "いいえ、必要ありません。2026年8月26日のルール変更により、Zoomチャットへの入力は不要になりました。ポイント付与は、事前登録したZoom表示名でのご参加によって確認されます。" },
+    { q: "45分レッスンなど、クラスの長さによってポイント条件は変わりますか？",
+      a: "変わりません。2026年8月26日のルール変更により、クラスの長さに関わらず在籍条件は一律20分以上に統一されました。" }
+  ]},
+  { cat: "Zoom表示名の登録・変更", en: "REGISTRATION", items: [
+    { q: "Zoom表示名はどこで登録すればいいですか？",
+      a: "<strong><a href=\"https://docs.google.com/forms/d/e/1FAIpQLSd-zulF8LaNnDtht8hULveZyru1IFNOoM1e2zsjb6D-Q-iLjA/viewform\" target=\"_blank\" rel=\"noopener\">Zoom表示名ご登録フォーム</a></strong>から登録してください。<br><br><a href=\"https://docs.google.com/forms/d/e/1FAIpQLSd-zulF8LaNnDtht8hULveZyru1IFNOoM1e2zsjb6D-Q-iLjA/viewform\" target=\"_blank\" rel=\"noopener\">◆ Zoom表示名ご登録フォーム</a>" },
+    { q: "Zoomの表示名の変更方法がわかりません。",
+      a: "<a href=\"https://flexible-bodymake-class.github.io/fbc-zoom-display-name-manual/\" target=\"_blank\" rel=\"noopener\">Discord表示名の変更マニュアル</a>にて、設定方法を画像つきで説明しています。" }
+  ]},
+  { cat: "移行期間・ボーナスポイント", en: "TRANSITION & BONUS", items: [
+    { q: "移行期間はいつまでですか？",
+      a: "2026年8月26日〜8月31日が移行期間です。この期間中に、Zoom表示名のご登録をお願いします。" },
+    { q: "ボーナスポイントがあると聞きました。", open: true,
+      a: "はい。<strong>2026年8月26日〜28日の3日間</strong>に<a href=\"https://docs.google.com/forms/d/e/1FAIpQLSd-zulF8LaNnDtht8hULveZyru1IFNOoM1e2zsjb6D-Q-iLjA/viewform\" target=\"_blank\" rel=\"noopener\">Zoom表示名ご登録フォーム</a>を送信いただいたサロン生には、<strong>ボーナスポイント50ポイント</strong>を付与します。" },
+    { q: "9月1日以降、登録していないとどうなりますか？",
+      a: "2026年9月1日以降は、<strong>事前登録されていないZoom表示名でのご参加にはポイントが付与されません。</strong>移行期間中の登録をお願いします。" }
+  ]},
+  { cat: "ポイント制度について", en: "POINTS & LEVEL", items: [
+    { q: "ポイントはどこで確認できますか？",
+      a: "Discordの「サロンポイント確認」チャンネルで「/level」と入力し、自分の名前（プロフィール）を選んで送信すると、現在のレベルとXP（経験値）、次のレベルまでに必要なポイント数が表示されます。" },
+    { q: "ポイントはいつ付与されますか？",
+      a: "基本的に翌日、遅くとも翌々日に付与されます。" },
+    { q: "サロンレベル通知は、ポイントがある程度貯まらないと来ないのですか？",
+      a: "ポイント数ではなく、レベルが1つ上がるたびに通知が来る仕組みです。" },
+    { q: "ポイントが追加されたとき、自分宛だけの通知は来ますか？",
+      a: "現状その機能はありません。ただし「サロンレベル通知」チャンネルで自分のユーザー名が名指しされるため、通知欄の点が白から赤に変わることで自分のレベルアップに気づけます。" },
+    { q: "レベルごとの特典は何がありますか？",
+      a: "レベル5：ストレッチアイテム1点プレゼント／レベル10：オンラインパーソナル30分／レベル15：オフ会最優先参加権／レベル20：オンラインパーソナル60分／レベル25：出張対面パーソナル／レベル30：会費が永久的に半額。詳細は「サロンポイント制度」ページに掲載されています。" }
+  ]}
+];
+
+// ===== render =====
+const sectionsEl = document.getElementById('sections');
+const tagsEl = document.getElementById('tags');
+let activeCat = null;
+
+function render() {
+  sectionsEl.innerHTML = '';
+  const kw = document.getElementById('search').value.trim().toLowerCase();
+  let shown = 0;
+
+  DATA.forEach((sec, si) => {
+    if (activeCat !== null && activeCat !== si) return;
+    const items = sec.items.filter(it =>
+      !kw || it.q.toLowerCase().includes(kw) || it.a.toLowerCase().includes(kw));
+    if (!items.length) return;
+    shown += items.length;
+
+    const div = document.createElement('div');
+    div.className = 'section';
+    div.innerHTML = '<div class="section-title"><h2>' + sec.cat + '</h2><span class="en">' + sec.en + '</span></div>';
+    items.forEach(it => {
+      const card = document.createElement('div');
+      card.className = 'qa-card' + (it.open ? ' open' : '');
+      card.innerHTML =
+        '<div class="qa-q"><span class="q-mark">Q.</span><span class="q-text">' + it.q + '</span><span class="arrow"></span></div>' +
+        '<div class="qa-a"><div class="a-inner"><span class="a-mark">A.</span><span class="a-text">' + it.a + '</span></div></div>';
+      card.querySelector('.qa-q').addEventListener('click', () => card.classList.toggle('open'));
+      div.appendChild(card);
+    });
+    sectionsEl.appendChild(div);
+  });
+
+  document.getElementById('count').textContent = shown + '件の質問を表示中';
+  document.getElementById('noResult').classList.toggle('hidden', shown > 0);
+}
+
+function toggleAll(open) {
+  document.querySelectorAll('.qa-card').forEach(c => c.classList.toggle('open', open));
+}
+
+// tags
+const allTag = document.createElement('div');
+allTag.className = 'tag active';
+allTag.textContent = 'すべて';
+allTag.onclick = () => { activeCat = null; setActive(allTag); render(); };
+tagsEl.appendChild(allTag);
+
+DATA.forEach((sec, i) => {
+  const t = document.createElement('div');
+  t.className = 'tag';
+  t.textContent = sec.cat;
+  t.onclick = () => { activeCat = i; setActive(t); render(); };
+  tagsEl.appendChild(t);
+});
+
+function setActive(el) {
+  document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+}
+
+document.getElementById('search').addEventListener('input', render);
+
+// stats
+document.getElementById('statQ').textContent = DATA.reduce((s, c) => s + c.items.length, 0);
+document.getElementById('statC').textContent = DATA.length;
+
+render();
+</script>
+</body>
+</html>
